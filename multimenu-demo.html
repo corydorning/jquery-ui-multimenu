@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Multi Menu Widget</title>
+
+<link rel="stylesheet" href="multimenu.css">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.css" rel="stylesheet">
+
+</head>
+
+<body>
+<h1>Multimenu Plugin</h1>
+
+<p>multimenu is a jQuery UI widget that transforms a group of checkboxes/radio buttons and turns them into a dropdown list to provide a solid user expereience and maximize screen real estate.</p>
+
+<p>You can set any of the following options to customize it to fit your needs:</p>
+    <pre>
+<code>
+// default options
+$('selector').mulitmenu({
+  autoOpen: false,
+  disabled: false,
+  hide: null,
+  show: null,
+
+  noneSelectedText: '-- Select Options --',
+  selectedList: 0,
+  selectedText: '# selected',
+  leafNodes: false,
+  minButtonWidth: 200,
+
+
+  header: true,
+  selectAll: true,
+  selectAllText: 'Select All',
+  search: true,
+  scrollDelay: 200,
+
+  menuHeight: 200,
+  minMenuWidth: 260
+});
+</code>
+</pre>
+
+<p>NOTE: Options can be set using the <code>data-options</code> attribute as well, and passing it an object. For example:</p>
+  <pre>
+<code>
+&lt;ul data-role="multimenu" data-options='{ "autoOpen": true, "selectedText": "# of # Employees selected" }'&gt;...&lt;/ul&gt;
+</code>
+  </pre>
+
+  <p>Turn this, into one of the dropdowns below...</p>
+  <ul>
+    <li>
+      <label><input type="checkbox" > Eric Burnett</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Cory Dorning</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Mike Gardner</label>
+    </li>
+  </ul>​
+
+  <h2>Standard Checkboxes</h2>
+
+  <ul data-role="multimenu" data-options='{ "noneSelectedText": "-- Select Employees --", "selectedText": "# Employee(s) Selected", "minButtonWidth": 300 }'>
+    <li>
+      <label><input type="checkbox" checked> Eric Burnett</label>
+    </li>
+    <li>
+      <label><input type="checkbox" checked> Cory Dorning</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Mike Gardner</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Ashley Halsey</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Dan Heberden</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Matt Lewis</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Kiel Loysen</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Brett Metzger</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Brent Moore</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Ben Nadel</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Mollie Neff</label>
+    </li>
+  </ul>​
+
+
+  <h2>Hierarchy Checkbox</h2>
+
+  <ul data-role="multimenu" data-options='{ "noneSelectedText": "-- Select Employees --", "selectedText": "# Employee(s) Selected" }'>
+    <li>
+      <label><input type="checkbox"> Cory Dorning</label>
+
+      <ul>
+        <li>
+          <label><input type="checkbox"> Dan Heberden</label>
+        </li>
+
+        <li>
+          <label><input type="checkbox"> Kiel Loysen</label>
+        </li>
+
+        <li>
+          <label><input type="checkbox"> Brett Metzger</label>
+        </li>
+
+        <li>
+          <label><input type="checkbox"> Ben Nadel</label>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <label><input type="checkbox"> Matt Lewis</label>
+
+      <ul>
+        <li>
+          <label><input type="checkbox"> Mike Gardner</label>
+        </li>
+
+        <li>
+          <label><input type="checkbox"> Ashley Halsey</label>
+        </li>
+
+        <li>
+          <label><input type="checkbox"> Mollie Neff</label>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <label><input type="checkbox"> Eric Burnett</label>
+    </li>
+    <li>
+      <label><input type="checkbox"> Brent Moore</label>
+    </li>
+  </ul>
+
+
+  <h2>Leaf Node Checkboxes w/ Indeterminate Plugin</h2>
+
+  <div data-role="indeterminate multimenu" data-label="true" data-options='{ "noneSelectedText": "-- Select Employees --", "selectedText": "# of # Employee(s) Selected", "leafNodes": true, "minButtonWidth": 250 }'><ul >
+      <li>
+        <label><input type="checkbox"> Rock. Paper. Code.</label>
+
+        <ul>
+          <li>
+            <label><input type="checkbox"> East Coast</label>
+
+            <ul>
+              <li>
+                <label><input type="checkbox"> Design</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Ashley Halsey</label>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <label><input type="checkbox"> Development</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Ben Nadel</label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <label><input type="checkbox"> Midwest</label>
+
+            <ul>
+              <li>
+                <label><input type="checkbox"> Design</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Mike Gardner</label>
+                  </li>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Matt Lewis</label>
+                  </li>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Mollie Neff</label>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <label><input type="checkbox"> Development</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Cory Dorning</label>
+                  </li>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Kiel Loysen</label>
+                  </li>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Brett Metzger</label>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <label><input type="checkbox"> Product</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Eric Burnett</label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <label><input type="checkbox"> West Coast</label>
+
+            <ul>
+              <li>
+                <label><input type="checkbox"> Development</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Dan Heberden</label>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <label><input type="checkbox"> Product</label>
+
+                <ul>
+                  <li>
+                    <label class="employee"><input type="checkbox"> Brent Moore</label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+  <h2>Standard Radio Buttons</h2>
+
+  <ul data-role="multimenu" data-options='{ "selectedList": 1, "selectAll": false }'>
+    <li>
+      <label><input type="radio" name="employee-radio"> Eric Burnett</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Cory Dorning</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Mike Gardner</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Ashley Halsey</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Dan Heberden</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Matt Lewis</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Kiel Loysen</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Brett Metzger</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Brent Moore</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Ben Nadel</label>
+    </li>
+    <li>
+      <label><input type="radio" name="employee-radio"> Mollie Neff</label>
+    </li>
+  </ul>​
+
+
+  <h2>Multiple Radio Button Sets</h2>
+
+  <div data-role="multimenu" data-options='{ "noneSelectedText": "-- Select Employees --", "menuHeight": 300, "header": "Please select a Designer, Developer and Product Employee:", "minButtonWidth": 300,"selectAll": false, "selectedList": 4 }'>
+    <h3>Design</h3>
+
+    <ul>
+      <li>
+        <label class="employee"><input type="radio" name="category-design"> Ashley Halsey</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-design"> Mike Gardner</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-design"> Matt Lewis</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-design"> Mollie Neff</label>
+      </li>
+    </ul>
+
+    <h3>Development</h3>
+
+    <ul>
+      <li>
+        <label class="employee"><input type="radio" name="category-development"> Cory Dorning</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-development"> Dan Heberden</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-development"> Kiel Loysen</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-development"> Brett Metzger</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-development"> Ben Nadel</label>
+      </li>
+    </ul>
+
+    <h3>Product</h3>
+
+    <ul>
+      <li>
+        <label class="employee"><input type="radio" name="category-product"> Eric Burnett</label>
+      </li>
+      <li>
+        <label class="employee"><input type="radio" name="category-product"> Brent Moore</label>
+      </li>
+    </ul>
+  </div>
+
+  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
+  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
+  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
+  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
+  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
+
+
+<!-- local test-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="jquery.ui.multimenu.js"></script>
+<script src="../indeterminate/jquery-indeterminate.js"></script>
+
+<script>
+  // jQuery noConflict
+  (function($) {
+    "use strict";
+
+    // jQuery DOM Ready
+    $(function() {
+      $('[data-role~="multimenu"]').multimenu();
+      $('[data-role~="indeterminate"]').indeterminate()
+
+    }); // DOM Ready
+
+  })(jQuery);
+</script>
+
+
+<!-- GXL Test -->
+
+
+</body>
+</html>

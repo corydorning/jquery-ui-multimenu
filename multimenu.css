@@ -1,0 +1,39 @@
+/*!
+* multimenu.css
+*
+* URL: http://corydorning.com/projects/multimenu
+*
+* @author: Cory Dorning
+* @modified: 05/01/2012
+*
+* multimenu is a jQuery UI widget that transforms a group of
+* checkboxes and turns them into a dropdown list to provide
+* a solid user expereience and maximize screen real estate.
+*
+*/
+
+.ui-multimenu .ui-button-text { text-align: left; }
+
+.ui-multimenu .ui-icon { border-left: solid 1px #ccc; }
+
+.ui-multimenu-header { margin-bottom: .5em; padding: 3px 0 3px 4px }
+.ui-multimenu-header ul li { float: left; line-height: 2.1em; padding: 0 10px 0 0 }
+.ui-multimenu-header label { display: inline; margin: 0; }
+.ui-multimenu-header a { text-decoration: none }
+.ui-multimenu-header a:hover { text-decoration: underline }
+.ui-multimenu-menu .ui-multimenu-header .ui-icon,
+.ui-multimenu-header input { margin: 0; vertical-align: middle; }
+.ui-multimenu-header .ui-multimenu-search { float: right; }
+
+.ui-multimenu-header a,
+.ui-multimenu-menu-items input { vertical-align: middle; }
+
+.ui-multimenu-menu.ui-helper-reset { padding:3px; position:absolute; text-align: left; z-index:10000; }
+
+.ui-multimenu-menu .ui-multimenu-menu-items { padding: 0 5px; position:relative /* fixes bug in IE7 */; overflow-y: scroll; }
+.ui-multimenu-menu-items ul { margin: 0; padding-left: 20px; }
+.ui-multimenu-menu-items label { display: inline-block; margin: 1px 0; padding-right: 3px; }
+.ui-multimenu-menu-items label.ui-state-hover { margin: 0; }
+.ui-multimenu-menu-items input { margin: 3px 3px 3px 4px; }
+
+.ui-multimenu-hilite { color: #cc0000; }
