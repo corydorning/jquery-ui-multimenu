@@ -9,7 +9,7 @@
   "description": "multimenu is a jQuery UI widget that transforms a list of checkboxes/radio buttons and adds them into a dropdown widget to provide a better User Experience when you need to select multiple items, without the need to use the <select> element and the CTRL key.",
   "keywords": [
     "jquery",
-    "jquery ui"
+    "jquery ui",
     "multimenu",
     "dropdown"
   ],
