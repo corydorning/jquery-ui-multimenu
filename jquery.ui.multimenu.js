@@ -8,11 +8,11 @@
  * dependencies: jQuery 1.9+, jQuery UI 1.9+
  *
  * multimenu is a jQuery UI widget that transforms a
- * takes a list of checkboxes/radio buttons and adds
- * them into a dropdown widget to provide a better
- * User Experience when you need to select multiple
- * items, without the need to use the <select> element
- * and the CTRL key.
+ * list of checkboxes/radio buttons and adds them
+ * into a dropdown widget to provide a better User
+ * Experience when you need to select multiple items,
+ * without the need to use the <select> element and
+ * the CTRL key.
  *
  */
 
