@@ -95,7 +95,7 @@
       // create header links
       $headerLinkContainer = (self.$headerLinkContainer = $('<ul />'))
         .addClass('ui-helper-reset')
-        .html(function() {
+        .append(function() {
           if(typeof o.header === "string") {
             return '<li>' + o.header + '</li>';
           } else if(o.header) {
@@ -378,27 +378,27 @@
 
     update: function() {
       var o = this.options,
+          $selectAll = this.$header.find(':checkbox'),
           $inputs = this.$inputs,
           $checked = $inputs.filter(':checked'),
           numChecked = $checked.length,
-          totalLeafs,
+          leafTotal = 0,
           value;
 
       if(o.leafNodes) {
-        var leafs = 0;
-        totalLeafs = 0;
+        // reset numChecked
+        numChecked = 0;
 
         $inputs.each(function() {
           if(!$(this).parents('li').first().find('ul').length) {
-            totalLeafs++;
+            leafTotal++;
 
+            // add to leaf node numChecked
             if($(this).is(':checked')) {
-              leafs++;
+              numChecked++;
             }
           }
         });
-
-        numChecked = leafs;
       }
 
       if(numChecked === 0) {
@@ -409,9 +409,12 @@
         } else if(/\d/.test(o.selectedList) && o.selectedList > 0 && numChecked <= o.selectedList) {
           value = $checked.map(function() { return $(this).parent().text(); }).get().join(', ');
         } else {
-          value = o.selectedText.replace('#', numChecked).replace('#', totalLeafs || $inputs.length);
+          value = o.selectedText.replace('#', numChecked).replace('#', leafTotal || $inputs.length);
         }
       }
+
+      $selectAll.prop('checked', numChecked === (leafTotal || $inputs.length) && $selectAll);
+
 
       this._setButtonValue(value);
 
