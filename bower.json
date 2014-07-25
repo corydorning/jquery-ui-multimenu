@@ -1,7 +1,7 @@
 {
   "name": "jquery-ui-multimenu",
   "main": ["jquery.ui.multimenu.js", "multimenu.css"],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/corydorning/jquery-ui-multimenu",
   "authors": [
     "Cory Dorning <cory@dorning.me>"
