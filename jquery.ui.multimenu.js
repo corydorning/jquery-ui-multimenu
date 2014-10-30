@@ -3,7 +3,7 @@
  * URL: http://corydorning.com/projects/multimenu
  *
  * @author: Cory Dorning
- * @modified: 06/02/2014
+ * @modified: 10/30/2014
  *
  * dependencies: jQuery 1.9+, jQuery UI 1.9+
  *
@@ -29,7 +29,7 @@
   };
 
   $.widget('ui.multimenu', {
-    _version: 0.2,
+    _version: "v1.0.1",
 
     version: function() { return this._version; },
   
@@ -72,7 +72,7 @@
 
 
       // create button, insert before plugin element
-      $button = (self.$button = $('<button></button>'))
+      $button = (self.$button = $('<button type="button"></button>'))
         .text(o.noneSelectedText)
         .addClass('ui-multimenu')
         .button({
@@ -269,7 +269,9 @@
     // set menu width
     _setMenuWidth: function() {
       var self = this,
-          width = self.$menu.outerWidth() + 10,
+
+          // reset outerwidth first, then get actual value
+          width = self.$menu.css('width', 'auto').outerWidth() + 10,
           o = self.options;
 
       if(/\d/.test(o.minMenuWidth) && width < o.minMenuWidth) {
