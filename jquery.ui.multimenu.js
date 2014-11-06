@@ -318,7 +318,23 @@
           speed = self.speed,
           $button = self.$button,
           $menu = self.$menu,
-          $container = self.$menuItems,
+
+          // reset the scroll of the checkbox container
+          // and set height so menuHeight can be calculated
+          $container = self.$menuItems.scrollTop(0).height(o.menuHeight),
+
+          // values are needed to see if menu is below the fold
+          buttonHeight = $button.outerHeight(),
+          menuHeight = $menu.outerHeight(),
+          windowHeight = $(window).height(),
+          windowScrollTop = $(window).scrollTop(),
+          buttonOffsetTop = self.$button.offset().top,
+          trueMenuHeight = buttonHeight + menuHeight,
+          menuFold = buttonOffsetTop  + trueMenuHeight,
+          pageBottomFold =  windowScrollTop + windowHeight,
+          pageTopFold =  buttonOffsetTop - windowScrollTop,
+
+          // placebolder for jquery show function
           args = [];
 
       // bail if the multimenuopen event returns false, this widget is disabled, or is already open
@@ -339,8 +355,12 @@
         args = [ effect, speed ];
       }
 
-      // set the scroll of the checkbox container
-      $container.scrollTop(0).height(o.menuHeight);
+      if(menuFold > pageBottomFold && trueMenuHeight < pageTopFold) {
+        console.log('menu is below the fold', menuHeight, $menu.outerHeight(), $menu.innerHeight(), buttonHeight);
+        $menu.css('margin-top', '-' + (menuHeight + buttonHeight + 2) + 'px')
+      } else {
+        $menu.css('margin-top', 0);
+      }
 
       // show the menu, maybe with a speed/effect combo
       $.fn.show.apply($menu, args);
