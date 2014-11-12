@@ -356,7 +356,6 @@
       }
 
       if(menuFold > pageBottomFold && trueMenuHeight < pageTopFold) {
-        console.log('menu is below the fold', menuHeight, $menu.outerHeight(), $menu.innerHeight(), buttonHeight);
         $menu.css('margin-top', '-' + (menuHeight + buttonHeight + 2) + 'px')
       } else {
         $menu.css('margin-top', 0);
