@@ -20,8 +20,7 @@
 ;(function($) {
   "use strict";
 
-  var multimenuID = 0,
-      $doc = $(document);
+  var $doc = $(document);
 
   jQuery.expr[':'].icontains = function(a, i, m) {
     return jQuery(a).text().toLowerCase()
@@ -122,9 +121,6 @@
       // widget specifics
       self.refresh();
       self.update();
-
-      // bump unique ID
-      multimenuID++;
 
     }, // _create method
 
