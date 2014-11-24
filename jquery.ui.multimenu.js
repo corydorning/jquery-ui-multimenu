@@ -3,7 +3,7 @@
  * URL: http://corydorning.com/projects/multimenu
  *
  * @author: Cory Dorning
- * @modified: 11/06/2014
+ * @modified: 11/24/2014
  *
  * dependencies: jQuery 1.9+, jQuery UI 1.9+
  *
@@ -278,6 +278,15 @@
       self.$menu.outerWidth(width);
     },
 
+    // set menu width
+    _setMenuHeight: function() {
+      var self = this,
+          o = self.options;
+
+      // set widths
+      self.$menuItems.height(o.menuHeight);
+    },
+
     // This is an internal function to toggle the checked property and
     // other related attributes of a checkbox.
     _toggleState: function(prop, flag) {
@@ -317,7 +326,7 @@
 
           // reset the scroll of the checkbox container
           // and set height so menuHeight can be calculated
-          $container = self.$menuItems.scrollTop(0).height(o.menuHeight),
+          $container = self.$menuItems.scrollTop(0),
 
           // values are needed to see if menu is below the fold
           buttonHeight = $button.outerHeight(),
@@ -473,6 +482,9 @@
       // set widths
       self._setButtonWidth();
       self._setMenuWidth();
+
+      // set height
+      self._setMenuHeight();
 
     } // refresh method
 
