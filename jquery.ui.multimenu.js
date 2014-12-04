@@ -147,11 +147,14 @@
           // button dropdown menu
           $button = self.$button,
 
-          // checkbox menu
-          $menuItems = self.$menuItems,
+          // full menu
+          $menu = self.$menu,
 
           // menu header
           $header = self.$header,
+
+          // checkbox menu
+          $menuItems = self.$menuItems,
 
           // open or close menu
           clickHandler = function() {
@@ -174,6 +177,13 @@
           $(this).removeClass('ui-state-focus');
         }
       }); // end $button events
+
+
+      $menu.on('keypress', 'input', function(e){
+        if(e.originalEvent.keyCode) {
+          self.close();
+        }
+      });
 
 
       // header events
