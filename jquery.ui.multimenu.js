@@ -3,7 +3,7 @@
  * URL: http://corydorning.com/projects/multimenu
  *
  * @author: Cory Dorning
- * @modified: 11/24/2014
+ * @modified: 12/4/2014
  *
  * dependencies: jQuery 1.9+, jQuery UI 1.9+
  *
