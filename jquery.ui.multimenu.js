@@ -3,7 +3,7 @@
  * URL: http://corydorning.com/projects/multimenu
  *
  * @author: Cory Dorning
- * @modified: 12/4/2014
+ * @modified: 12/8/2014
  *
  * dependencies: jQuery 1.9+, jQuery UI 1.9+
  *
@@ -180,7 +180,7 @@
 
 
       $menu.on('keypress', 'input', function(e){
-        if(e.originalEvent.keyCode) {
+        if(e.originalEvent.keyCode === 13) {
           self.close();
         }
       });
@@ -199,7 +199,7 @@
              }
            },
            'keyup.multimenu': $.proxy(self._handler, self)
-        }, '.ui-multimenu-search input', function() {
+        }, '.ui-multimenu-search :text', function() {
 
         });
       // end $header events
