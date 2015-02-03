@@ -89,10 +89,10 @@
       // create menu header
       $header = (self.$header = $('<div/>'))
         .addClass('ui-widget-header ui-corner-all ui-multimenu-header ui-helper-clearfix')
-        .prependTo($menu),
+        .prependTo($menu);
 
       // create header links
-      $headerLinkContainer = (self.$headerLinkContainer = $('<ul />'))
+      self.$headerLinkContainer = $('<ul />')
         .addClass('ui-helper-reset')
         .append(function() {
           if(typeof o.header === "string") {
@@ -188,7 +188,7 @@
 
       // header events
       $header
-        .on('click.multimenu', ':checkbox', function(e) {
+        .on('click.multimenu', ':checkbox', function() {
           self[$(this).is(':checked') ? 'checkAll' : 'uncheckAll']();
         })
         .on({
@@ -315,8 +315,8 @@
     },
 
     _toggleChecked: function(flag) {
-      var $inputs = this.$inputs;
-      var self = this;
+      var self = this,
+          $inputs = self.$inputs;
 
       // remove any indeterminate states
       $inputs.prop('indeterminate', false);
@@ -465,7 +465,7 @@
       this.$button.button({ disabled: true });
     },
 
-    checkAll: function(e) {
+    checkAll: function() {
       this._toggleChecked(true);
       this.update();
     },
