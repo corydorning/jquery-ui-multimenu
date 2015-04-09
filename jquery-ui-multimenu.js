@@ -1,4 +1,4 @@
-/*! jquery.ui.multimenu.js
+/*! jquery-ui-multimenu.js
  *
  * URL: http://corydorning.com/projects/multimenu
  *
