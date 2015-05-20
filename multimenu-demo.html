@@ -14,6 +14,7 @@
 
 <p>multimenu is a jQuery UI widget that transforms a group of checkboxes/radio buttons and turns them into a dropdown list to provide a solid user expereience and maximize screen real estate.</p>
 
+<h2>Options</h2>
 <p>You can set any of the following options to customize it to fit your needs:</p>
     <pre>
 <code>
@@ -49,6 +50,14 @@ $('selector').mulitmenu({
 &lt;ul data-role="multimenu" data-options='{ "autoOpen": true, "selectedText": "# of # Employees selected" }'&gt;...&lt;/ul&gt;
 </code>
   </pre>
+
+  <h2>Events</h2>
+  <ul>
+    <li><code>selectall</code>: Triggered when the multimenu's 'Select All' is selected (ex. <code>$(selector).on('selectall', function() { ...do something... });</code></li>
+    <li><code>deselectall</code>: Triggered when the multimenu's 'Select All' is deselected (ex. <code>$(selector).on('deselectall', function() { ...do something... });</code></li>
+  </ul>
+
+  <p><strong>Event Fired:</strong> <em id="events">Event will show here when triggered</em></p>
 
   <p>Turn this, into one of the dropdowns below...</p>
   <ul>
@@ -356,12 +365,6 @@ $('selector').mulitmenu({
     </ul>
   </div>
 
-  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
-  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
-  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
-  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
-  <p>Some content goes here. Want to make sure the menu overlays it and doesn't push it down.</p>
-
 
 <!-- local test-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -376,17 +379,20 @@ $('selector').mulitmenu({
 
     // jQuery DOM Ready
     $(function() {
-      $('[data-role~="multimenu"]').multimenu();
+      $('[data-role~="multimenu"]').multimenu().on('selectall deselectall', function(ev) {
+        $('#events').html('<code>' + ev.type + '</code> triggered.');
+
+        setTimeout(function() {
+          $('#events').html('Event will show here when triggered');
+        }, 5000)
+      });
+
       $('[data-role~="indeterminate"]').indeterminate()
 
     }); // DOM Ready
 
   })(jQuery);
 </script>
-
-
-<!-- GXL Test -->
-
 
 </body>
 </html>

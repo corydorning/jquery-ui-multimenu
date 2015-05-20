@@ -468,11 +468,17 @@
     checkAll: function() {
       this._toggleChecked(true);
       this.update();
+
+      // trigger event
+      this.element.trigger('selectall');
     },
 
     uncheckAll: function() {
       this._toggleChecked(false);
       this.update();
+
+      // trigger event
+      this.element.trigger('deselectall');
     },
 
     refresh: function() {
